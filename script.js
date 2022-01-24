@@ -50,7 +50,10 @@ const callback = (data) => {
     .attr('data-temp', (d) => data.baseTemperature + d.variance)
     .attr('x', (d) => xScale(d.year))
     .attr('y', (d) => yScale(d.month))
-    .attr('fill', 'blue');
+    .attr('width', (d) => xScale.bandwidth(d.year))
+    .attr('height', (d) => yScale.bandwidth(d.month))
+    .attr('fill', 'rgb(107, 154, 241)')
+    .attr('stroke', 'white');
 };
 
 const addHeader = (data) => {
